@@ -185,3 +185,90 @@ docekr pull <repo:tag>
 
 docker run -d -p 8080:8080 <docker image id>
 ```
+
+## 6. Jenkins
+
+> ssh 키 생성 및 github 적용 방법
+
+ssh key 생성
+
+```
+ssh-keygen -b 2048 -t rsa -f ~/ssh-key/id_rsa
+```
+
+ssh key 설정 경로
+
+```
+
+github 메인 > 우측 profile > setting > Account settings > ssh and gpg keys
+> new ssh key > title: ssh-key, key: id_rsa.pub 내용 입력 > add ssh key 눌러서 추가
+```
+
+젠킨스는 `지속적 통합 서비스`를 제공하는 툴이다.
+
+- 다수의 개발자들이 하나의 프로그램을 개발할 때 버전 충돌을 방지하기 위해 각자 작업한 내용을 공유 영역에 있는 Git등의 저장소에 빈번히 업로드 함으로써 지속적 통합이 가능하도록 해준다.
+
+> 다음과 같은 특징이 있다.
+
+- 빌드 자동화
+- 자동화 테스트
+- 코드품질 검사, 정적 분석
+- 빌드 파이프라인 구성
+
+> 플러그인을 사용할 수 있다.
+
+- Credential plugin: aws token, git access token 등 정보 저장할 때 사용
+- pipeline plugin: 파이프라인 관리
+- docker plugin : 도커 관리 플러그인
+
+1. Jenkins 컨테이너 실행
+
+> sg는 ssh, http, 8080 개방
+
+```sh
+  docker run --name jenkins -d -p 8080:8080 -v ~/jenkins:/var/jenkins_home -u root jenkins/jenkins:latest
+```
+
+2. Jenkins 접속 및 설치
+
+- http://publicaddress:8000
+
+```sh
+  # Admin Password 확인
+  docker exec -it jenkins bash -c "cat /var/jenkins_home/secrets/initialAdminPassword"
+```
+
+3. 관리 계정 생성 (admin 및 test)
+
+> Timezone 설정 필요
+
+4. 플러그인 설치
+
+Jenkins 관리 -> plugin manager
+
+- Job DSL
+- Simple Build DSLfor Pipeline
+- Docker Pipeline
+- Pipeline: Declarative Agent API
+- Pipeline utility Steps
+- Build Pipeline
+- SSH pipeline steps
+- Pipeline: AWS steps
+- Pipeline :Github
+- git parameter
+- github integration
+- github athentication
+- docker
+- docker commons
+- docker api
+- docker-build-step
+- cloudbees docker build and publish
+- cloudbees docker custom build environment
+- amazon web services SDK :: ALL
+- cloudbees AWS credentials
+- amazon ecr
+- aws global configuration
+- ssh
+- ssh agent
+
+5. 인증 설정
