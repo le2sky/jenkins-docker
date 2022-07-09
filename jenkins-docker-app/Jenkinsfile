@@ -18,7 +18,8 @@ pipeline { // stage 별로 명시
             steps {
                 sh """
                 cd ${mainDir}
-                sudo ./gradlew clean build
+                chmod +x ./gradlew
+                ./gradlew clean build
                 """
             }
         }
@@ -31,7 +32,8 @@ pipeline { // stage 별로 명시
                         chmod +x ${ecrLoginHelper}
                         mv ${ecrLoginHelper} /usr/local/bin/
                         cd ${mainDir}
-                        sudo ./gradlew jib -Djib.to.image=${ecrUrl}/${repository}:${currentBuild.number} -Djib.console='plain'
+                        chmod +x ./gradlew
+                        ./gradlew jib -Djib.to.image=${ecrUrl}/${repository}:${currentBuild.number} -Djib.console='plain'
                     """
                 }
             }
