@@ -133,8 +133,9 @@ rootProject.name = 'app'
 
 ## 4. Jib
 
+<p align="center">
 <img src="./resource/docker_build_flow.png"/>
-
+</p>
 - docker 데몬 없이, 그리고 docker 권장사항에 대한 깊은 숙달 없이 Java 애플리케이션에 최적화된 `docker 및 OCI 이미지`를 빌드한다
 - Maven 및 Gradle용 플러그인과 자바 라이브러리로 사용할 수 있다.
 - 애플리케이션을 여러 레이어로 분리해서 클래스 종속성을 분리해 변경된 레이어만 배포 가능
@@ -246,6 +247,7 @@ github 메인 > 우측 profile > setting > Account settings > ssh and gpg keys
 
 Jenkins 관리 -> plugin manager
 
+```
 - Job DSL
 - Simple Build DSLfor Pipeline
 - Docker Pipeline
@@ -271,4 +273,30 @@ Jenkins 관리 -> plugin manager
 - ssh
 - ssh agent
 
+```
+
 5. 인증 설정
+
+- local에서 ssh-key 만들기
+- 깃헙 ssh-key 만들기
+- jenkins -> security -> manage credentials -> global credentials -> ssh username with private key 선택
+- aws credential 추가
+- 배포 서버 pem 추가
+
+6. 파이프라인 잡 생성
+
+- 새로운 아이템 -> pipeline 선택
+- github project 선택
+- pipeline script from scm 선택 -> ssh-key 설정
+- branch 설정
+- script path 지정 (젠킨스 파일)
+
+```
+jenkins-docker/jenkins-docker-app/Jenkinsfile
+```
+
+## 7. jenkins ci/cd
+
+<p align="center">
+<img src="./resource/jenkins-cicd.PNG"/>
+</p>
