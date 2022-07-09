@@ -1,4 +1,4 @@
-def mainDir="jenkins-docker/jenkins-docker-app" 
+def mainDir="jenkins-docker-app" 
 def ecrLoginHelper="docker-credential-ecr-login" // ecr 푸시 전 인증 문제 해결
 def region="ap-northeast-2"
 def ecrUrl="315199840269.dkr.ecr.ap-northeast-2.amazonaws.com"

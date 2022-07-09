@@ -300,3 +300,6 @@ jenkins-docker/jenkins-docker-app/Jenkinsfile
 <p align="center">
 <img src="./resource/jenkins-cicd.PNG"/>
 </p>
+
+- 세팅 이후, build now
+- console output에서 로그 확인
