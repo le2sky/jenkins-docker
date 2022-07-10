@@ -11,7 +11,7 @@ sudo apt-get install curl
 sudo apt-get install openjdk-11-jdk
 
 # gradle version setting
-VERSION=7.4.2
+VERSION=7.3.1
 
 
 
