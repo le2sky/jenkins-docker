@@ -4,11 +4,33 @@
 # apt-get update
 sudo apt-get update
 sudo apt-get -y upgradle
-sudo apt-get install build-essential
+sudo apt-get install unzip
 sudo apt-get install curl
+sudo apt-get install gedit
+
+
+# gradle version setting
+VERSION=7.4.2
+
+
 
 # gradle installation
-sudo apt-get install gradle-7.4.2
+wget https://services.gradle.org/distributions/gradle-${VERSION}-bin.zip -P /tmp
+sudo unzip -d /opt/gradle /tmp/gradle-${VERSION}-bin.zip
+sudo ln -s /opt/gradle/gradle-${VERSION} /opt/gradle/latest
+
+
+# sudo gedit /etc/profile.d/gradle.sh
+
+# input flowwing command into gradle.sh
+# export GRADLE_HOME=/opt/gradle/latest
+# export PATH=${GRADLE_HOME}/bin:${PATH}
+
+# add execuatable permission
+# sudo chmod +x /etc/profile.d/gradle.sh
+
+#  script loading
+# source /etc/profile.d/gradle.sh
 
 # check installation
 gradle -v
