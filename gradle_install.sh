@@ -23,7 +23,7 @@ sudo ln -s /opt/gradle/gradle-${VERSION} /opt/gradle/latest
 
 # sudo vi /etc/profile.d/gradle.sh
 
-## input flowwing command into gradle.sh
+## input fllowing command into gradle.sh
 # export GRADLE_HOME=/opt/gradle/latest
 # export PATH=${GRADLE_HOME}/bin:${PATH}
 
